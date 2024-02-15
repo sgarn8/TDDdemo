@@ -77,4 +77,18 @@ public class GameTest {
         int[] rolls = {10,10,10,10,10,10,10,10,10,10,10,9};
         Assertions.assertEquals(299, game.score(rolls));
     }
+
+    @Test
+    public void givenStrikesFollowedBy9Spare_returnScoreOf200() {
+        Game game = new Game();
+        int[] rolls = {10,9,1,10,9,1,10,9,1,10,9,1,10,9,1,10,9};
+        Assertions.assertEquals(200, game.score(rolls));
+    }
+
+    @Test
+    public void givenMoreThan10FramesOfStrikes_returnScoreOf300() {
+        Game game = new Game();
+        int[] rolls = {10,10,10,10,10,10,10,10,10,10,10,10,10,10};
+        Assertions.assertEquals(300, game.score(rolls));
+    }
 }
